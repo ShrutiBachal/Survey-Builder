@@ -2,6 +2,14 @@ import { useNavigate } from "react-router-dom";
 
 function SurveyTable({ surveys }) {
   const navigate = useNavigate();
+  if (surveys.length === 0) {
+      return (
+        <div className="table-container">
+          <h2>Recent Surveys</h2>
+          <p>No surveys found.</p>
+        </div>
+    );
+  }
 
   return (
     <div className="table-container">
@@ -11,9 +19,9 @@ function SurveyTable({ surveys }) {
         <thead>
           <tr>
             <th>Name</th>
-            <th>Last Modified</th>
-            <th>Questions</th>
-            <th>Actions</th>
+            <th>Description</th>
+            <th>Created at</th>
+            <th>Updated at</th>
           </tr>
         </thead>
 
@@ -21,8 +29,18 @@ function SurveyTable({ surveys }) {
           {surveys.map((survey) => (
             <tr key={survey.id}>
               <td>{survey.name}</td>
-              <td>{survey.lastModified}</td>
-              <td>{survey.questions}</td>
+              <td>{survey.description}</td>
+              <td>
+                {new Date(
+                  survey.createdAt
+                ).toLocaleDateString()}
+              </td>
+
+              <td>
+                {new Date(
+                  survey.updatedAt
+                ).toLocaleDateString()}
+              </td>
 
               <td>
                 <button
@@ -37,6 +55,7 @@ function SurveyTable({ surveys }) {
           ))}
         </tbody>
       </table>
+
     </div>
   );
 }
