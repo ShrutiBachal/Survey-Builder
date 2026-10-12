@@ -9,3 +9,31 @@
 body {
   background: #f8fafc;
 }
+
+.create-survey-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.create-survey-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.create-survey-container input,
+.create-survey-container textarea,
+.create-survey-container select {
+  width: 100%;
+  padding: 12px;
+}
+
+.create-survey-container textarea {
+  min-height: 120px;
+}
+
+.create-survey-container button {
+  padding: 12px;
+  cursor: pointer;
+}

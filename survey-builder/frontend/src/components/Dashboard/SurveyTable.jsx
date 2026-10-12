@@ -27,7 +27,7 @@ function SurveyTable({ surveys }) {
 
         <tbody>
           {surveys.map((survey) => (
-            <tr key={survey.id}>
+            <tr key={survey._id}>
               <td>{survey.name}</td>
               <td>{survey.description}</td>
               <td>
@@ -45,7 +45,7 @@ function SurveyTable({ surveys }) {
               <td>
                 <button
                   onClick={() =>
-                    navigate(`/builder/${survey.id}`)
+                    navigate(`/survey/${survey._id}`)
                   }
                 >
                   Edit
