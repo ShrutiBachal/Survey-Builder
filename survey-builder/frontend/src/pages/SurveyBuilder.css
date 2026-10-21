@@ -1,0 +1,71 @@
+.survey-builder {
+  max-width: 1000px;
+  margin: 32px auto;
+  padding: 0 20px 40px;
+}
+
+.survey-details,
+.question-editor,
+.question-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.question-editor form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.question-editor textarea,
+.question-editor select,
+.question-editor input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font: inherit;
+}
+
+.question-editor textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.question-editor button,
+.question-card button {
+  padding: 9px 14px;
+  margin: 5px 8px 5px 0;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.question-options > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.question-options > div input {
+  flex: 1;
+  min-width: 0;
+}
+
+.question-editor input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+.question-card ul {
+  padding-left: 24px;
+}
+
+.question-editor button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
