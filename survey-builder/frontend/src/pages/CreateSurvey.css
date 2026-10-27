@@ -1,0 +1,258 @@
+.create-survey-page {
+  min-height: calc(100vh - 64px);
+  background: #f7f8fa;
+  color: #172033;
+  padding: 0 24px 48px;
+}
+
+.create-survey-topbar {
+  max-width: 1180px;
+  margin: 0 auto;
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e4e7ec;
+}
+
+.create-survey-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.brand-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid #475467;
+  border-radius: 8px;
+  color: #175cd3;
+}
+
+.create-survey-top-actions,
+.create-survey-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.create-survey-card {
+  width: min(100%, 660px);
+  margin: 36px auto 0;
+  padding: 32px;
+  background: #fff;
+  border: 1px solid #e4e7ec;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(16, 24, 40, 0.04);
+}
+
+.page-eyebrow {
+  color: #175cd3;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.create-survey-card h1 {
+  margin: 0;
+  font-size: clamp(24px, 3vw, 30px);
+  letter-spacing: -0.03em;
+}
+
+.page-intro {
+  margin: 8px 0 28px;
+  color: #667085;
+  line-height: 1.5;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.form-field label,
+.template-picker > label {
+  font-size: 13px;
+  font-weight: 650;
+  color: #344054;
+}
+
+.form-field label span {
+  color: #d92d20;
+}
+
+.form-field label small {
+  color: #667085;
+  font-weight: 400;
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select,
+.template-picker select,
+.import-picker input[type="file"] {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #d0d5dd;
+  border-radius: 7px;
+  padding: 11px 12px;
+  background: #fff;
+  color: #101828;
+  font: inherit;
+  font-size: 14px;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 86px;
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus,
+.template-picker select:focus {
+  outline: 3px solid rgba(21, 112, 239, 0.12);
+  border-color: #528bff;
+}
+
+.start-from-fieldset {
+  border: 0;
+  padding: 0;
+  margin: 8px 0 22px;
+  min-width: 0;
+}
+
+.start-from-fieldset legend {
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.start-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 13px;
+  border: 1px solid #e4e7ec;
+  border-radius: 8px;
+  margin-bottom: 9px;
+  cursor: pointer;
+}
+
+.start-option.selected {
+  border-color: #84adff;
+  background: #f5f8ff;
+}
+
+.start-option input {
+  margin-top: 3px;
+  accent-color: #175cd3;
+}
+
+.start-option span {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.start-option strong {
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.start-option small,
+.template-description,
+.muted-note {
+  color: #667085;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.template-picker,
+.import-picker {
+  padding: 4px 0 14px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.import-picker input[type="file"] {
+  padding: 8px;
+}
+
+.category-field {
+  margin-top: 8px;
+}
+
+.button {
+  min-height: 38px;
+  padding: 9px 16px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.button-primary {
+  color: #fff;
+  background: #175cd3;
+  border: 1px solid #175cd3;
+}
+
+.button-primary:hover:not(:disabled) {
+  background: #1849a9;
+}
+
+.button-secondary {
+  color: #344054;
+  background: #fff;
+  border: 1px solid #d0d5dd;
+}
+
+.button-secondary:hover {
+  background: #f9fafb;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-error {
+  color: #b42318;
+  background: #fef3f2;
+  border: 1px solid #fecdca;
+  padding: 10px 12px;
+  border-radius: 7px;
+  font-size: 13px;
+}
+
+.create-survey-footer {
+  border-top: 1px solid #eaecf0;
+  margin-top: 24px;
+  padding-top: 20px;
+}
+
+@media (max-width: 600px) {
+  .create-survey-page {
+    padding: 0 14px 28px;
+  }
+
+  .create-survey-card {
+    margin-top: 20px;
+    padding: 22px 18px;
+  }
+
+  .create-survey-topbar {
+    min-height: 60px;
+  }
+}
