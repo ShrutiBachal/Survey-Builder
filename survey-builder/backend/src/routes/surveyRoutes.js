@@ -8,16 +8,18 @@ const {
   deleteSurvey,
 } = require("../controllers/surveyController");
 
+const { requireAuth } = require("../middleware/authMiddleware");
+const  allowRoles  = require("../middleware/roleMiddleware");
+
 const router = express.Router();
 
-router.post("/", createSurvey);
+// Both Admin and User can view surveys
+router.get("/", requireAuth, getAllSurveys);
+router.get("/:id", requireAuth, getSurveyById);
 
-router.get("/", getAllSurveys);
-
-router.get("/:id", getSurveyById);
-
-router.put("/:id", updateSurvey);
-
-router.delete("/:id", deleteSurvey);
+// Only Admin can manage surveys
+router.post("/", requireAuth, allowRoles("Admin"), createSurvey);
+router.put("/:id", requireAuth, allowRoles("Admin"), updateSurvey);
+router.delete("/:id", requireAuth, allowRoles("Admin"), deleteSurvey);
 
 module.exports = router;

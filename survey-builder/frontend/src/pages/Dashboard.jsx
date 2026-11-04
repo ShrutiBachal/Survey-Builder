@@ -4,6 +4,8 @@ import Navbar from "../components/Navbar/Navbar";
 import HeroSection from "../components/Dashboard/HeroSection";
 import SurveyTable from "../components/Dashboard/SurveyTable";
 import { getAllSurveys } from "../services/surveyService";
+import { deleteSurvey } from "../services/surveyService";
+
 
 import "../components/Dashboard/Dashboard.css";
 
@@ -28,6 +30,35 @@ function Dashboard() {
     fetchSurveys();
   }, []);
 
+  const handleDelete = async (surveyId) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this survey?"
+    );
+
+    if (!confirmDelete) return;
+
+    try {
+      await deleteSurvey(surveyId);
+
+      // Remove the deleted survey from the UI
+      setSurveys((prevSurveys) =>
+        prevSurveys.filter((survey) => survey._id !== surveyId)
+      );
+
+      alert("Survey deleted successfully!");
+    } catch (error) {
+      console.error(
+        "Delete survey error:",
+        error.response?.data || error.message
+      );
+
+      alert(
+        error.response?.data?.message ||
+        "Failed to delete survey. Please try again."
+      );
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -40,7 +71,10 @@ function Dashboard() {
         {error && <p>{error}</p>}
 
         {!loading && !error && (
-          <SurveyTable surveys={surveys} />
+          <SurveyTable 
+            surveys={surveys} 
+            onDelete={handleDelete}
+          />
         )}
       </div>
     </>

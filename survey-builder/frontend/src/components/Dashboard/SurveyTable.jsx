@@ -1,7 +1,10 @@
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/useAuth";
 
-function SurveyTable({ surveys }) {
+function SurveyTable({ surveys, onDelete }) {
   const navigate = useNavigate();
+  const { user } = useAuth();
+  const isAdmin = user?.role === "Admin";
   if (surveys.length === 0) {
       return (
         <div className="table-container">
@@ -10,7 +13,7 @@ function SurveyTable({ surveys }) {
         </div>
     );
   }
-
+  
   return (
     <div className="table-container">
       <h2>Recent Surveys</h2>
@@ -43,13 +46,25 @@ function SurveyTable({ surveys }) {
               </td>
 
               <td>
-                <button
-                  onClick={() =>
-                    navigate(`/survey/${survey._id}`)
-                  }
-                >
+                {isAdmin && (
+                  <button
+                    onClick={() =>
+                      navigate(`/survey/${survey._id}`)
+                    }
+                  >
                   Edit
                 </button>
+              )}
+              </td>
+              <td>
+                {isAdmin && (
+                  <button
+                    type="button"
+                    onClick={() => onDelete(survey._id)}
+                  >
+                    Delete
+                  </button>
+                )}
               </td>
             </tr>
           ))}

@@ -53,6 +53,7 @@ function Navbar() {
           <div className="profile-dropdown" role="menu">
             <div className="dropdown-user-info">
               <strong>{user?.username || "User"}</strong>
+              <span>{user?.role || "User"}</span>
               <span>{user?.email || ""}</span>
             </div>
 
